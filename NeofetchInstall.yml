@@ -1,0 +1,16 @@
+---
+## This playbook installs neofetch for easy displaying of system information (CentOS only!)
+
+- name: Setup and Install Neofetch
+  hosts: Blackhole
+  become: yes
+  become_method: sudo
+
+  tasks:
+    - name: Curl Neofetch repo and add it to yum's repolist
+      command: /bin/bash -c "curl -o /etc/yum.repos.d/konimex-neofetch-epel-7.repo https://copr.fedorainfracloud.org/coprs/konimex/neofetch/repo/epel-7/konimex-neofetch-epel-7.repo"
+    
+    - name: Install neofetch
+      yum:
+        name: neofetch
+        state: present
