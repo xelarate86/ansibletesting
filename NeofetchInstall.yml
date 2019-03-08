@@ -2,7 +2,7 @@
 ## This playbook installs neofetch for easy displaying of system information (CentOS only!)
 
 - name: Setup and Install Neofetch
-  hosts: Blackhole
+  hosts: all
   become: yes
   become_method: sudo
 
